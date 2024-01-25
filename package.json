@@ -1,0 +1,53 @@
+{
+	"name": "@samual/cookie",
+	"version": "0.0.0",
+	"description": "Set and get cookies with optional type validation with a Valibot schema.",
+	"keywords": [
+		"bundle-size",
+		"cookie",
+		"modular",
+		"parsing",
+		"runtime",
+		"schema",
+		"type-safe",
+		"typescript",
+		"validation"
+	],
+	"homepage": "https://github.com/samualtnorman/cookie#readme",
+	"bugs": {
+		"url": "https://github.com/samualtnorman/cookie/issues",
+		"email": "me@samual.uk"
+	},
+	"license": "MIT",
+	"author": "Samual Norman <me@samual.uk> (https://samual.uk/)",
+	"files": [
+		"*"
+	],
+	"repository": "github:samualtnorman/cookie",
+	"dependencies": {
+		"@samual/lib": "0.10.0-64f98cc",
+		"bleb": "0.1.0-c7d5a0b",
+		"valibot": "^0.27.0"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.23.8",
+		"@babel/preset-typescript": "^7.23.3",
+		"@rollup/plugin-babel": "^6.0.4",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@total-typescript/ts-reset": "^0.5.1",
+		"@types/babel__preset-env": "^7.9.6",
+		"@types/node": "^18.19.9",
+		"rollup": "^4.9.6",
+		"typescript": "^5.3.3"
+	},
+	"engines": {
+		"node": ">=18.19.0"
+	},
+	"private": true,
+	"exports": {
+		".": "./index.js",
+		"./*": "./*.js",
+		"./*.js": "./*.js"
+	},
+	"type": "module"
+}

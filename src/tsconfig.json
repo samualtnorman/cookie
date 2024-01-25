@@ -1,0 +1,9 @@
+{
+	"extends": "..",
+	"compilerOptions": {
+		"exactOptionalPropertyTypes": true,
+		"declaration": true,
+		"outDir": "../dist"
+	},
+	"include": [ "**/*" ]
+}
