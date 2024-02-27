@@ -38,12 +38,15 @@
 		"@total-typescript/ts-reset": "^0.5.1",
 		"@types/babel__preset-env": "^7.9.6",
 		"@types/node": "^18.19.18",
+		"@types/semver": "^7.5.8",
 		"rollup": "^4.12.0",
 		"rollup-plugin-prettier": "^4.1.1",
+		"semver": "^7.6.0",
 		"typescript": "^5.3.3"
 	},
 	"engines": {
-		"node": ">=18.19.0"
+		"node": "^18 || >=20",
+		"pnpm": "^8.15.4"
 	},
 	"private": true,
 	"exports": {

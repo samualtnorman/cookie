@@ -13,7 +13,7 @@ import prettier from "rollup-plugin-prettier"
 
 const SOURCE_PATH = "src"
 
-export default findFiles(SOURCE_PATH).then(foundFiles => /** @satisfies {RollupOptions} */ ({
+export default findFiles(SOURCE_PATH).then(foundFiles => /** @satisfies {RollupOptions} */({
 	external: source => !(source.startsWith("/") || source.startsWith(".")),
 	input: Object.fromEntries(
 		foundFiles.filter(path => path.endsWith(".ts") && !path.endsWith(".d.ts"))
@@ -25,7 +25,7 @@ export default findFiles(SOURCE_PATH).then(foundFiles => /** @satisfies {RollupO
 			babelHelpers: "bundled",
 			extensions: [ ".ts" ],
 			presets: [
-				[ babelPresetEnv, /** @satisfies {BabelPresetEnvOptions} */ ({ targets: { node: "18.19" } }) ],
+				[ babelPresetEnv, /** @satisfies {BabelPresetEnvOptions} */({ targets: { node: "18.0" } }) ],
 				babelPresetTypescript
 			]
 		}),
