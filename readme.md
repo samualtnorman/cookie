@@ -1,7 +1,7 @@
 # Cookie
 Set and get cookies with optional type validation with a [Valibot](https://valibot.dev/) schema.
 
-Requires Node.js 18.19.0 or later.
+Requires Node.js 18.0 or later.
 
 ## Install
 ```sh
