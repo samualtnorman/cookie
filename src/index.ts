@@ -1,4 +1,4 @@
-import { tryThen } from "@samual/lib/tryThen"
+import { catchError } from "@samual/lib/catchError"
 
 export const encodeString = (string: string) =>
 	btoa(string).replaceAll(`=`, ``).replaceAll(`+`, `*`).replaceAll(`/`, `-`)
@@ -23,13 +23,27 @@ export function parseCookies(cookies: string | undefined | null): Map<string, st
 		for (const cookie of cookies.split(`; `)) {
 			const index = cookie.indexOf(`=`)
 
-			if (index == -1)
-				tryThen(() => decodeString(cookie), value => parsedCookies.set(``, value))
-			else {
-				tryThen(
-					() => [ decodeString(cookie.slice(0, index)), decodeString(cookie.slice(index + 1)) ],
-					([ key, value ]) => parsedCookies.set(key, value)
-				)
+			if (index == -1) {
+				const [ value, error ] = catchError(() => decodeString(cookie))
+
+				if (error)
+					console.error(`Caught`, error)
+				else
+					parsedCookies.set(``, value)
+			} else {
+				const [ key, error ] = catchError(() => decodeString(cookie.slice(0, index)))
+
+				if (error)
+					console.error(`Caught`, error)
+				else {
+					const [ value, error ] = catchError(() => decodeString(cookie.slice(index + 1)))
+
+					if (error)
+						console.error(`Caught`, error)
+					else {
+						parsedCookies.set(key, value)
+					}
+				}
 			}
 		}
 	}
