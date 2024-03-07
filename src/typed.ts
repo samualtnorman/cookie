@@ -57,7 +57,9 @@ export function getCookie<
   *
   * response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" })) */
 export const setCookie = <T extends v.BaseSchema>(options: CookieOptions<T>, value: v.Output<T>): string =>
-	Cookie.setCookie(options.name, JSON.stringify(value), options)
+	value === undefined
+		? Cookie.deleteCookie(options.name)
+		: Cookie.setCookie(options.name, JSON.stringify(value), options)
 
 /** @example
   * // client
