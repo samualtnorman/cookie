@@ -26,7 +26,6 @@
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
 		"@samual/lib": "0.10.0-873e51b",
-		"bleb": "0.1.0-c7d5a0b",
 		"valibot": "^0.30.0"
 	},
 	"devDependencies": {
