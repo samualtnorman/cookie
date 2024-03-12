@@ -12,7 +12,7 @@ npm install @samual/cookie
 ### Non Validated Cookies
 #### In the Client
 ```js
-import { parseCookies, setCookie, deleteCookie } from "@samual/cookie"
+import { deleteCookie, parseCookies, setCookie } from "@samual/cookie"
 
 // parse cookies
 const cookies = parseCookies(document.cookie)
@@ -26,7 +26,7 @@ document.cookie = deleteCookie("foo")
 
 #### On the Server
 ```js
-import { parseCookies, setCookie, deleteCookie } from "@samual/cookie"
+import { deleteCookie, parseCookies, setCookie } from "@samual/cookie"
 
 // ...
 // in request handling code:
@@ -45,7 +45,8 @@ response.headers.set("set-cookie", deleteCookie("foo"))
 #### In the Client
 ```js
 import { parseCookies } from "@samual/cookie"
-import { getCookie, setCookie, deleteCookie } from "@samual/cookie/typed"
+import { deleteCookie, getCookie, setCookie } from "@samual/cookie/typed"
+import * as v from "valibot"
 
 // set up cookie name and schema
 const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
@@ -62,7 +63,8 @@ document.cookie = deleteCookie(MyCookie)
 #### On the Server
 ```js
 import { parseCookies } from "@samual/cookie"
-import { getCookie, setCookie, deleteCookie } from "@samual/cookie/typed"
+import { deleteCookie, getCookie, setCookie } from "@samual/cookie/typed"
+import * as v from "valibot"
 
 // set up cookie name and schema
 const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
