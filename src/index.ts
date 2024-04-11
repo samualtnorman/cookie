@@ -17,7 +17,7 @@ export const decodeString = (string: string) => atob(string.replaceAll(`*`, `+`)
   *
   * console.log(cookies.get("foo")) // "bar" */
 export function parseCookies(cookies: string | undefined | null): Map<string, string> {
-	const parsedCookies = new Map<string, string>
+	const parsedCookies = new Map<string, string>()
 
 	if (cookies) {
 		for (const cookie of cookies.split(`; `)) {
