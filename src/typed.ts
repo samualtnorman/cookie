@@ -3,7 +3,9 @@ import * as v from "valibot"
 import type { parseCookies } from "."
 import * as Cookie from "."
 
-export type CookieOptions<T extends v.BaseSchema> = { name: string, schema: T, attributes?: `;${string}` | undefined }
+export type CookieOptions<T extends v.GenericSchema> = { name: string, schema: T, attributes?: `;${string}` | undefined }
+
+v.string
 
 /** Make a {@link CookieOptions} object for use with {@link getCookie}, {@link setCookie}, and {@link deleteCookie}.
   * The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) meaning only
@@ -15,7 +17,7 @@ export type CookieOptions<T extends v.BaseSchema> = { name: string, schema: T, a
   * [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects)s can be used.
   * @example
   * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) }) */
-export const makeCookieOptions = <T extends v.BaseSchema>(options: CookieOptions<T>) => options
+export const makeCookieOptions = <T extends v.GenericSchema>(options: CookieOptions<T>) => options
 
 /** @example
   * // client
@@ -33,8 +35,8 @@ export const makeCookieOptions = <T extends v.BaseSchema>(options: CookieOptions
   * console.log(myCookie) // { foo: "bar" }
   * @param cookies Returned value of {@link parseCookies}. */
 export function getCookie<
-	T extends v.BaseSchema
->(cookies: Map<string, string>, options: CookieOptions<T>): v.Output<T> | undefined {
+	T extends v.GenericSchema
+>(cookies: Map<string, string>, options: CookieOptions<T>): v.InferOutput<T> | undefined {
 	const cookie = cookies.get(options.name)
 
 	if (cookie) {
@@ -56,7 +58,7 @@ export function getCookie<
   * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
   *
   * response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" })) */
-export const setCookie = <T extends v.BaseSchema>(options: CookieOptions<T>, value: v.Output<T>): string =>
+export const setCookie = <T extends v.GenericSchema>(options: CookieOptions<T>, value: v.InferOutput<T>): string =>
 	value === undefined
 		? Cookie.deleteCookie(options.name)
 		: Cookie.setCookie(options.name, JSON.stringify(value), options)
@@ -72,5 +74,5 @@ export const setCookie = <T extends v.BaseSchema>(options: CookieOptions<T>, val
   * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
   *
   * response.headers.set("set-cookie", deleteCookie(MyCookie)) */
-export const deleteCookie = <T extends v.BaseSchema>(options: CookieOptions<T>): string =>
+export const deleteCookie = <T extends v.GenericSchema>(options: CookieOptions<T>): string =>
 	Cookie.deleteCookie(options.name)
