@@ -31,15 +31,16 @@
 	"devDependencies": {
 		"@samual/rollup-config": "^0.0.2",
 		"@total-typescript/ts-reset": "^0.5.1",
-		"@types/node": "~18.0.6",
+		"@types/node": "~18.19.34",
 		"@types/semver": "^7.5.8",
+		"babel-plugin-here": "^1.0.1",
 		"rollup": "^4.14.1",
 		"semver": "^7.6.0",
 		"typescript": "^5.4.5"
 	},
 	"engines": {
-		"node": "^18 || >=20",
-		"pnpm": "^9.0.5"
+		"node": "^18.20 || ^20.10 || >=22",
+		"pnpm": "^9.3.0"
 	},
 	"private": true,
 	"exports": {

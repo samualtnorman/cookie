@@ -1,9 +1,13 @@
 {
 	"extends": "..",
 	"compilerOptions": {
-		"exactOptionalPropertyTypes": true,
 		"declaration": true,
-		"outDir": "../dist"
+		"outDir": "../dist",
+		"types": [ "@total-typescript/ts-reset", "babel-plugin-here/env" ],
+		"rootDir": ".",
+		"module": "es2022",
+		"moduleResolution": "bundler",
+		"lib": [ "es2022", "DOM" ]
 	},
 	"include": [ "**/*" ]
 }
