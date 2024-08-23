@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@samual/lib':
-        specifier: 0.11.1-ccd3b61
-        version: 0.11.1-ccd3b61
+        specifier: 0.11.1-93dc617
+        version: 0.11.1-93dc617
       valibot:
         specifier: ^0.38.0
         version: 0.38.0(typescript@5.5.4)
@@ -800,9 +800,9 @@ packages:
     resolution: {integrity: sha512-O1rQWS3EHbMKUAfaD3qY/SxsYDarlDtNIeJjPvUZiLmO3eeNuVvEtcnKbvWdywIq0ttW6oS5Nmcsm3JkpDeGsQ==}
     engines: {node: ^18 || >=20}
 
-  '@samual/lib@0.11.1-ccd3b61':
-    resolution: {integrity: sha512-uJjeAs13yLWIxDY59yltpqj5/BiOLIF685hWc6BCocWmrhfWsS5idv8/G21x3G6mQfNH+Vs5tufOG2v/ZIl/ww==}
-    engines: {node: ^18 || >=20}
+  '@samual/lib@0.11.1-93dc617':
+    resolution: {integrity: sha512-NJ6sL00FaS8c5QWfvAKrwuq+DfM9bUiMXdxbwecy1bGchdXFQrNL5mgbWs9SnrwgEvQu2jz55im6c6UMTJ/rrg==}
+    engines: {node: ^18.20 || ^20.10 || >=22}
 
   '@samual/rollup-config@0.1.1':
     resolution: {integrity: sha512-kVuMx660aYXxrWBeb9pKWFBOdfuVwcYanO5EH0ylris+bfnhbD1rFAQfqElI2ajyj9IdVPF2r63+LvXaXv8Iiw==}
@@ -2062,7 +2062,7 @@ snapshots:
 
   '@samual/lib@0.11.0': {}
 
-  '@samual/lib@0.11.1-ccd3b61': {}
+  '@samual/lib@0.11.1-93dc617': {}
 
   '@samual/rollup-config@0.1.1(@babel/core@7.25.2)(prettier@3.3.3)(rollup@4.21.0)':
     dependencies:
