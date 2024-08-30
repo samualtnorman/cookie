@@ -25,8 +25,8 @@
 	],
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
-		"@samual/lib": "0.11.1-93dc617",
-		"valibot": "^0.39.0"
+		"@samual/lib": "0.11.1-76711d3",
+		"valibot": "^0.40.0"
 	},
 	"devDependencies": {
 		"@samual/rollup-config": "0.1.2-9234740",
@@ -34,7 +34,7 @@
 		"@types/node": "~18.19.47",
 		"@types/semver": "^7.5.8",
 		"babel-plugin-here": "^1.0.1",
-		"rollup": "^4.21.1",
+		"rollup": "^4.21.2",
 		"semver": "^7.6.3",
 		"typescript": "^5.5.4"
 	},
