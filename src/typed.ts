@@ -5,8 +5,6 @@ import * as Cookie from "."
 
 export type CookieOptions<T extends v.GenericSchema> = { name: string, schema: T, attributes?: `;${string}` | undefined }
 
-v.string
-
 /** Make a {@link CookieOptions} object for use with {@link getCookie}, {@link setCookie}, and {@link deleteCookie}.
   * The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) meaning only
   * [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null),
