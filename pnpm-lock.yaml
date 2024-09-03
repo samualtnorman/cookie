@@ -9,21 +9,21 @@ importers:
   .:
     dependencies:
       '@samual/lib':
-        specifier: 0.11.1-76711d3
-        version: 0.11.1-76711d3
+        specifier: 0.11.1-70d27b8
+        version: 0.11.1-70d27b8
       valibot:
-        specifier: ^0.40.0
-        version: 0.40.0(typescript@5.5.4)
+        specifier: ^0.41.0
+        version: 0.41.0(typescript@5.5.4)
     devDependencies:
       '@samual/rollup-config':
         specifier: 0.1.2-9234740
         version: 0.1.2-9234740(@babel/core@7.25.2)(prettier@3.3.3)(rollup@4.21.2)
       '@total-typescript/ts-reset':
-        specifier: ^0.6.0
-        version: 0.6.0
+        specifier: ^0.6.1
+        version: 0.6.1
       '@types/node':
-        specifier: ~18.19.47
-        version: 18.19.47
+        specifier: ~18.19.48
+        version: 18.19.48
       '@types/semver':
         specifier: ^7.5.8
         version: 7.5.8
@@ -800,22 +800,22 @@ packages:
     resolution: {integrity: sha512-O1rQWS3EHbMKUAfaD3qY/SxsYDarlDtNIeJjPvUZiLmO3eeNuVvEtcnKbvWdywIq0ttW6oS5Nmcsm3JkpDeGsQ==}
     engines: {node: ^18 || >=20}
 
-  '@samual/lib@0.11.1-76711d3':
-    resolution: {integrity: sha512-ziYizZ3ewjjvxHY9BleSSrd3cWcJzlM+arELAMceXlS9hRvV7LL0wTDqS65WxG4JjWyp8WkGB1FniAwb/+zWjg==}
+  '@samual/lib@0.11.1-70d27b8':
+    resolution: {integrity: sha512-HplUVDpc4sqsuexstlaC/yorAv2AjgCU6a6za09uBTLOzuHp2ppGomggo6eGGCMKiUAUHqZ9nl60uzbTWPnQIQ==}
     engines: {node: ^18.20 || ^20.10 || >=22}
 
   '@samual/rollup-config@0.1.2-9234740':
     resolution: {integrity: sha512-8OMiqdYUGm0DrQASRW1k909q9e13Jdu36yvF8L1OYH+iTVgx9+d6KfLfS7Mq2z1GZTqguzQXBvdr3U5AGidoUw==}
     engines: {node: ^18.20 || ^20.10 || >=22}
 
-  '@total-typescript/ts-reset@0.6.0':
-    resolution: {integrity: sha512-HWZnkM+5z3INAUZMohVXvX8/vm9sjmfmV2NRAswvv5WsU2m+OZsHAVZ0fl8xf2QH9kyPkinghVW6g3DOQ2xt5Q==}
+  '@total-typescript/ts-reset@0.6.1':
+    resolution: {integrity: sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
 
-  '@types/node@18.19.47':
-    resolution: {integrity: sha512-1f7dB3BL/bpd9tnDJrrHb66Y+cVrhxSOTGorRNdHwYTUlTay3HuTDPKo9a/4vX9pMQkhYBcAbL4jQdNlhCFP9A==}
+  '@types/node@18.19.48':
+    resolution: {integrity: sha512-7WevbG4ekUcRQSZzOwxWgi5dZmTak7FaxXDoW7xVxPBmKx1rTzfmRLkeCgJzcbBnOV2dkhAPc8cCeT6agocpjg==}
 
   '@types/prettier@3.0.0':
     resolution: {integrity: sha512-mFMBfMOz8QxhYVbuINtswBp9VL2b4Y0QqYHwqLz3YbgtfAcat2Dl6Y1o4e22S/OVE6Ebl9m7wWiMT2lSbAs1wA==}
@@ -1010,8 +1010,8 @@ packages:
   path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
-  picocolors@1.0.1:
-    resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
+  picocolors@1.1.0:
+    resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
 
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -1134,8 +1134,8 @@ packages:
     peerDependencies:
       browserslist: '>= 4.21.0'
 
-  valibot@0.40.0:
-    resolution: {integrity: sha512-XHKnaVtwHqxPwnGOsLrwka9CEaL7yNeLNp707OKv/bmT29GnPVdl6PxBOZ6BW7hF66/6QT6iVbOlnW7qVPmoKw==}
+  valibot@0.41.0:
+    resolution: {integrity: sha512-igDBb8CTYr8YTQlOKgaN9nSS0Be7z+WRuaeYqGf3Cjz3aKmSnqEmYnkfVjzIuumGqfHpa3fLIvMEAfhrpqN8ng==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -1155,7 +1155,7 @@ snapshots:
   '@babel/code-frame@7.24.7':
     dependencies:
       '@babel/highlight': 7.24.7
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   '@babel/compat-data@7.25.4': {}
 
@@ -1322,7 +1322,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   '@babel/parser@7.25.6':
     dependencies:
@@ -2062,7 +2062,7 @@ snapshots:
 
   '@samual/lib@0.11.0': {}
 
-  '@samual/lib@0.11.1-76711d3': {}
+  '@samual/lib@0.11.1-70d27b8': {}
 
   '@samual/rollup-config@0.1.2-9234740(@babel/core@7.25.2)(prettier@3.3.3)(rollup@4.21.2)':
     dependencies:
@@ -2083,11 +2083,11 @@ snapshots:
       - rollup
       - supports-color
 
-  '@total-typescript/ts-reset@0.6.0': {}
+  '@total-typescript/ts-reset@0.6.1': {}
 
   '@types/estree@1.0.5': {}
 
-  '@types/node@18.19.47':
+  '@types/node@18.19.48':
     dependencies:
       undici-types: 5.26.5
 
@@ -2246,7 +2246,7 @@ snapshots:
 
   path-parse@1.0.7: {}
 
-  picocolors@1.0.1: {}
+  picocolors@1.1.0: {}
 
   picomatch@2.3.1: {}
 
@@ -2374,9 +2374,9 @@ snapshots:
     dependencies:
       browserslist: 4.23.3
       escalade: 3.2.0
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
-  valibot@0.40.0(typescript@5.5.4):
+  valibot@0.41.0(typescript@5.5.4):
     optionalDependencies:
       typescript: 5.5.4
 
