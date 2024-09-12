@@ -1,3 +1,4 @@
+import type { LaxPartial } from "@samual/lib"
 import { tryCatch } from "@samual/lib/tryCatch"
 
 export const encodeString = (string: string) =>
@@ -51,8 +52,13 @@ export function parseCookies(cookies: string | undefined | null): Map<string, st
   * @example
   * // server
   * response.headers.set("set-cookie", setCookie("foo", "bar")) */
-export const setCookie = (name: string, value: string, options?: { attributes?: `;${string}` | undefined }): string =>
-	`${encodeString(name)}=${encodeString(value)}${options?.attributes || `;max-age=31536000;path=/;sameSite=lax`}`
+export const setCookie = (
+	name: string,
+	value: string,
+	options?: LaxPartial<{ attributes: `;${string}`, rawName: boolean, rawValue: boolean }>
+): string =>
+	`${options?.rawName ? name : encodeString(name)}=${options?.rawValue ? value : encodeString(value)}${
+	options?.attributes || `;max-age=31536000;path=/;sameSite=lax`}`
 
 /** @example
   * // client
@@ -61,4 +67,5 @@ export const setCookie = (name: string, value: string, options?: { attributes?: 
   * @example
   * // server
   * response.headers.set("set-cookie", deleteCookie("foo")) */
-export const deleteCookie = (name: string): string => `${encodeString(name)}=;max-age=0;path=/;sameSite=lax`
+export const deleteCookie = (name: string, options?: LaxPartial<{ rawName: boolean }>): string =>
+	`${options?.rawName ? name : encodeString(name)}=;max-age=0;path=/;sameSite=lax`

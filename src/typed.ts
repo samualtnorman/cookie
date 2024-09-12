@@ -3,7 +3,13 @@ import * as v from "valibot"
 import type { parseCookies } from "."
 import * as Cookie from "."
 
-export type CookieOptions<T extends v.GenericSchema> = { name: string, schema: T, attributes?: `;${string}` | undefined }
+export type CookieOptions<T extends v.GenericSchema> = {
+	name: string,
+	schema: T,
+	attributes?: `;${string}` | undefined
+	rawName?: boolean | undefined
+	rawValue?: boolean | undefined
+}
 
 /** Make a {@link CookieOptions} object for use with {@link getCookie}, {@link setCookie}, and {@link deleteCookie}.
   * The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) meaning only
@@ -58,7 +64,7 @@ export function getCookie<
   * response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" })) */
 export const setCookie = <T extends v.GenericSchema>(options: CookieOptions<T>, value: v.InferOutput<T>): string =>
 	value === undefined
-		? Cookie.deleteCookie(options.name)
+		? Cookie.deleteCookie(options.name, options)
 		: Cookie.setCookie(options.name, JSON.stringify(value), options)
 
 /** @example
@@ -73,4 +79,4 @@ export const setCookie = <T extends v.GenericSchema>(options: CookieOptions<T>, 
   *
   * response.headers.set("set-cookie", deleteCookie(MyCookie)) */
 export const deleteCookie = <T extends v.GenericSchema>(options: CookieOptions<T>): string =>
-	Cookie.deleteCookie(options.name)
+	Cookie.deleteCookie(options.name, options)
