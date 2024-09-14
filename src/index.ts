@@ -1,22 +1,19 @@
 import type { LaxPartial } from "@samual/lib"
-import { tryCatch } from "@samual/lib/tryCatch"
 
-export const encodeString = (string: string) =>
-	btoa(string).replaceAll(`=`, ``).replaceAll(`+`, `*`).replaceAll(`/`, `-`)
+function assertValidCookieName(name: string) {
+	if (!/^[!#-+-.\d^-z|~]+$/i.test(name))
+		throw SyntaxError(`Invalid cookie name`)
+}
 
-export const decodeString = (string: string) => atob(string.replaceAll(`*`, `+`).replaceAll(`-`, `/`))
-
-/** @example
-  * // client
-  * const cookies = parseCookies(document.cookie)
-  *
-  * console.log(cookies.get("foo")) // "bar"
-  *
-  * @example
-  * // server
-  * const cookies = parseCookies(request.headers.get("cookie"))
-  *
-  * console.log(cookies.get("foo")) // "bar" */
+/**
+@example
+// client
+const cookies = parseCookies(document.cookie)
+console.log(cookies.get("foo")) // "bar"
+@example
+// server
+const cookies = parseCookies(request.headers.get("cookie"))
+console.log(cookies.get("foo")) // "bar" */
 export function parseCookies(cookies: string | undefined | null): Map<string, string> {
 	const parsedCookies = new Map<string, string>()
 
@@ -25,47 +22,46 @@ export function parseCookies(cookies: string | undefined | null): Map<string, st
 			const index = cookie.indexOf(`=`)
 
 			if (index == -1) {
-				const value = tryCatch(() => decodeString(cookie))
-
-				if (value)
-					parsedCookies.set(``, value)
-			} else {
-				const key = tryCatch(() => decodeString(cookie.slice(0, index)))
-
-				if (key) {
-					const value = tryCatch(() => decodeString(cookie.slice(index + 1)))
-
-					if (value)
-						parsedCookies.set(key, value)
-				}
-			}
+				parsedCookies.set(``, cookie)
+			} else
+				parsedCookies.set(cookie.slice(0, index), cookie.slice(index + 1))
 		}
 	}
 
 	return parsedCookies
 }
 
-/** @example
-  * // client
-  * document.cookie = setCookie("foo", "bar")
-  *
-  * @example
-  * // server
-  * response.headers.set("set-cookie", setCookie("foo", "bar")) */
-export const setCookie = (
+/**
+@example
+// client
+document.cookie = setCookie("foo", "bar")
+@example
+// server
+response.headers.set("set-cookie", setCookie("foo", "bar"))
+*/
+export function setCookie(
 	name: string,
 	value: string,
-	options?: LaxPartial<{ attributes: `;${string}`, rawName: boolean, rawValue: boolean }>
-): string =>
-	`${options?.rawName ? name : encodeString(name)}=${options?.rawValue ? value : encodeString(value)}${
-	options?.attributes || `;max-age=31536000;path=/;sameSite=lax`}`
+	options?: LaxPartial<{ attributes: `;${string}` }>
+): string {
+	assertValidCookieName(name)
 
-/** @example
-  * // client
-  * document.cookie = deleteCookie("foo")
-  *
-  * @example
-  * // server
-  * response.headers.set("set-cookie", deleteCookie("foo")) */
-export const deleteCookie = (name: string, options?: LaxPartial<{ rawName: boolean }>): string =>
-	`${options?.rawName ? name : encodeString(name)}=;max-age=0;path=/;sameSite=lax`
+	if (!/^(?:[!#-+--:<-[\]-~]*)|(?:"[!#-+--:<-[\]-~]*")$/.test(value))
+		throw SyntaxError(`Invalid cookie value`)
+
+	return `${name}=${value}${options?.attributes || `;max-age=31536000;path=/;sameSite=lax`}`
+}
+
+/**
+@example
+// client
+document.cookie = deleteCookie("foo")
+@example
+// server
+response.headers.set("set-cookie", deleteCookie("foo"))
+*/
+export function deleteCookie(name: string): string {
+	assertValidCookieName(name)
+
+	return `${name}=;max-age=0;path=/;sameSite=lax`
+}
