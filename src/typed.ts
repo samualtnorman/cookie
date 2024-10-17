@@ -78,7 +78,10 @@ const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ f
 
 response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" }))
 */
-export function setCookie<T extends v.GenericSchema>(options: CookieOptions<T>, value: v.InferInput<T>): string {
+export function setCookie<T extends v.GenericSchema>(
+	options: CookieOptions<T>,
+	value: v.InferInput<T> | undefined
+): string {
 	const name = options.rawName ? options.name : encodeString(options.name)
 
 	if (value === undefined)
