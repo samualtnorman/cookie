@@ -1,6 +1,6 @@
 {
 	"name": "@samual/cookie",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Set and get cookies with optional type validation with a Valibot schema.",
 	"keywords": [
 		"bundle-size",
