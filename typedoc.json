@@ -1,0 +1,10 @@
+{
+	"tsconfig": "src",
+	"entryPointStrategy": "expand",
+	"plugin": [
+		"typedoc-github-theme",
+		"typedoc-plugin-version-header",
+		"typedoc-plugin-github-widget",
+		"typedoc-plugin-mdn-links"
+	]
+}
