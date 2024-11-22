@@ -1,5 +1,5 @@
 {
-	"include": [ "*", "scripts/*", "game-scripts/*" ],
+	"include": [ "*", "scripts/*" ],
 	"compilerOptions": {
 		"noEmit": true,
 		"lib": [ "es2023" ],
