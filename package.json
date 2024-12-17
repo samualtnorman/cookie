@@ -26,22 +26,22 @@
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
 		"@samual/lib": "^0.13.0",
-		"valibot": "1.0.0-beta.8"
+		"valibot": "1.0.0-beta.9"
 	},
 	"devDependencies": {
 		"@samual/rollup-config": "^0.1.2",
 		"@total-typescript/ts-reset": "^0.6.1",
-		"@types/node": "~18.19.64",
+		"@types/node": "~18.19.68",
 		"@types/semver": "^7.5.8",
 		"babel-plugin-here": "^1.0.2",
-		"rollup": "^4.27.3",
+		"rollup": "^4.28.1",
 		"semver": "^7.6.3",
-		"typedoc": "^0.26.11",
-		"typedoc-github-theme": "^0.1.2",
+		"typedoc": "^0.27.5",
+		"typedoc-github-theme": "^0.2.0",
 		"typedoc-plugin-github-widget": "^1.0.0",
-		"typedoc-plugin-mdn-links": "^3.3.8",
+		"typedoc-plugin-mdn-links": "^4.0.5",
 		"typedoc-plugin-version-header": "^1.0.0",
-		"typescript": "^5.6.3"
+		"typescript": "^5.7.2"
 	},
 	"engines": {
 		"node": "^18.20 || ^20.10 || >=22",
