@@ -1,7 +1,5 @@
 # Cookie
-Set and get cookies with optional type validation using a [Valibot](https://valibot.dev/) schema.
-
-Requires Node.js 18.20+, 20.10+, 22.0+, or above.
+Set and get cookies with optional type validation using a [Standard Schema](https://github.com/standard-schema/standard-schema?tab=readme-ov-file#ecosystem).
 
 ## Install
 ```sh
@@ -46,10 +44,10 @@ response.headers.set("set-cookie", deleteCookie("foo"))
 ```js
 import { parseCookies } from "@samual/cookie"
 import { deleteCookie, getCookie, setCookie } from "@samual/cookie/typed"
-import * as v from "valibot"
+import { z } from "zod"
 
 // set up cookie name and schema
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 // parse cookies
 const cookies = parseCookies(document.cookie)
 // get a cookie
@@ -64,10 +62,10 @@ document.cookie = deleteCookie(MyCookie)
 ```js
 import { parseCookies } from "@samual/cookie"
 import { deleteCookie, getCookie, setCookie } from "@samual/cookie/typed"
-import * as v from "valibot"
+import { z } from "zod"
 
 // set up cookie name and schema
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 
 // ...
 // in request handling code:

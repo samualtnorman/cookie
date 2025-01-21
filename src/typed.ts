@@ -1,11 +1,12 @@
 import { tryCatch } from "@samual/lib/tryCatch"
 import { utf8Decoder } from "@samual/lib/utf8Decoder"
 import { utf8Encoder } from "@samual/lib/utf8Encoder"
-import * as v from "valibot"
+import { StandardSchemaV1 } from "@standard-schema/spec"
+import { SchemaError } from "@standard-schema/utils"
 import type { parseCookies } from "."
 import * as Cookie from "."
 
-export type CookieOptions<T extends v.GenericSchema> = {
+export type CookieOptions<T extends StandardSchemaV1> = {
 	name: string
 	schema: T
 	attributes?: `;${string}` | undefined
@@ -32,7 +33,7 @@ The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/
 @example
 const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
 */
-export const makeCookieOptions = <T extends v.GenericSchema>(options: CookieOptions<T>) => options
+export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOptions<T>) => options
 
 /**
 @example
@@ -52,16 +53,20 @@ console.log(myCookie) // { foo: "bar" }
 @param cookies Returned value of {@link parseCookies}.
 */
 export function getCookie<
-	T extends v.GenericSchema
->(cookies: Map<string, string>, options: CookieOptions<T>): v.InferOutput<T> | undefined {
+	T extends StandardSchemaV1
+>(cookies: Map<string, string>, options: CookieOptions<T>): StandardSchemaV1.InferOutput<T> | undefined {
 	const cookie = cookies.get(options.rawName ? options.name : encodeString(options.name))
 
 	if (cookie) {
-		const result =
-			v.safeParse(options.schema, tryCatch(() => JSON.parse(options.rawValue ? cookie : decodeString(cookie))))
+		const result = options.schema["~standard"].validate(tryCatch(() => JSON.parse(options.rawValue ? cookie : decodeString(cookie))))
 
-		if (result.success)
-			return result.output
+		if (result instanceof Promise)
+			throw TypeError(`Schema validation must be synchronous`)
+
+		if (result.issues)
+			throw new SchemaError(result.issues)
+
+		return result.value
 	}
 }
 
@@ -78,9 +83,9 @@ const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ f
 
 response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" }))
 */
-export function setCookie<T extends v.GenericSchema>(
+export function setCookie<T extends StandardSchemaV1>(
 	options: CookieOptions<T>,
-	value: v.InferInput<T> | undefined
+	value: StandardSchemaV1.InferInput<T> | undefined
 ): string {
 	const name = options.rawName ? options.name : encodeString(options.name)
 
@@ -105,5 +110,5 @@ const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ f
 
 response.headers.set("set-cookie", deleteCookie(MyCookie))
 */
-export const deleteCookie = <T extends v.GenericSchema>(options: CookieOptions<T>): string =>
+export const deleteCookie = <T extends StandardSchemaV1>(options: CookieOptions<T>): string =>
 	Cookie.deleteCookie(options.rawName ? options.name : encodeString(options.name))

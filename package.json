@@ -1,7 +1,7 @@
 {
 	"name": "@samual/cookie",
 	"version": "0.0.2",
-	"description": "Set and get cookies with optional type validation with a Valibot schema.",
+	"description": "Set and get cookies with optional type validation with a Standard Schema.",
 	"keywords": [
 		"bundle-size",
 		"cookie",
@@ -11,7 +11,11 @@
 		"schema",
 		"type-safe",
 		"typescript",
-		"validation"
+		"validation",
+		"zod",
+		"interface",
+		"standard-schema",
+		"valibot"
 	],
 	"homepage": "https://github.com/samualtnorman/cookie#readme",
 	"bugs": {
@@ -26,10 +30,11 @@
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
 		"@samual/lib": "^0.13.0",
-		"valibot": "1.0.0-beta.9"
+		"@standard-schema/utils": "^0.3.0"
 	},
 	"devDependencies": {
 		"@samual/rollup-config": "^0.1.2",
+		"@standard-schema/spec": "1.0.0-rc.0",
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/node": "~18.19.68",
 		"@types/semver": "^7.5.8",
