@@ -30,11 +30,11 @@
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
 		"@samual/lib": "^0.13.0",
+		"@standard-schema/spec": "1.0.0-rc.0",
 		"@standard-schema/utils": "^0.3.0"
 	},
 	"devDependencies": {
 		"@samual/rollup-config": "^0.1.2",
-		"@standard-schema/spec": "1.0.0-rc.0",
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/node": "~18.19.68",
 		"@types/semver": "^7.5.8",

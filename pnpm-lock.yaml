@@ -11,6 +11,9 @@ importers:
       '@samual/lib':
         specifier: ^0.13.0
         version: 0.13.0
+      '@standard-schema/spec':
+        specifier: 1.0.0-rc.0
+        version: 1.0.0-rc.0
       '@standard-schema/utils':
         specifier: ^0.3.0
         version: 0.3.0
@@ -18,9 +21,6 @@ importers:
       '@samual/rollup-config':
         specifier: ^0.1.2
         version: 0.1.2(@babel/core@7.25.2)(prettier@3.4.2)(rollup@4.28.1)
-      '@standard-schema/spec':
-        specifier: 1.0.0-rc.0
-        version: 1.0.0-rc.0
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
