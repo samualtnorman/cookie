@@ -30,27 +30,27 @@
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
 		"@samual/lib": "^0.13.0",
-		"@standard-schema/spec": "1.0.0-rc.0",
+		"@standard-schema/spec": "1.0.0",
 		"@standard-schema/utils": "^0.3.0"
 	},
 	"devDependencies": {
 		"@samual/rollup-config": "^0.1.2",
 		"@total-typescript/ts-reset": "^0.6.1",
-		"@types/node": "~18.19.68",
+		"@types/node": "~18.19.74",
 		"@types/semver": "^7.5.8",
 		"babel-plugin-here": "^1.0.2",
-		"rollup": "^4.28.1",
+		"rollup": "^4.32.1",
 		"semver": "^7.6.3",
-		"typedoc": "^0.27.5",
-		"typedoc-github-theme": "^0.2.0",
+		"typedoc": "^0.27.6",
+		"typedoc-github-theme": "^0.2.1",
 		"typedoc-plugin-github-widget": "^1.0.0",
-		"typedoc-plugin-mdn-links": "^4.0.5",
+		"typedoc-plugin-mdn-links": "^4.0.10",
 		"typedoc-plugin-version-header": "^1.0.0",
-		"typescript": "^5.7.2"
+		"typescript": "^5.7.3"
 	},
 	"engines": {
 		"node": "^18.20 || ^20.10 || >=22",
-		"pnpm": "^9"
+		"pnpm": "^10"
 	},
 	"private": true,
 	"exports": {
@@ -58,5 +58,6 @@
 		"./*": "./*.js",
 		"./*.js": "./*.js"
 	},
-	"type": "module"
+	"type": "module",
+	"packageManager": "pnpm@10.1.0"
 }
