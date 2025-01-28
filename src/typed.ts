@@ -31,21 +31,21 @@ The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/
 [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)s, and
 [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects)s can be used.
 @example
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 */
 export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOptions<T>) => options
 
 /**
 @example
 // client
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 const cookies = parseCookies(document.cookie)
 const myCookie = getCookie(cookies, MyCookie)
 
 console.log(myCookie) // { foo: "bar" }
 @example
 // server
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 const cookies = parseCookies(request.headers.get("cookie"))
 const myCookie = getCookie(cookies, MyCookie)
 
@@ -73,13 +73,13 @@ export function getCookie<
 /**
 @example
 // client
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 
 document.cookie = setCookie(MyCookie, { foo: "bar" })
 
 @example
 // server
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 
 response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" }))
 */
@@ -100,13 +100,13 @@ export function setCookie<T extends StandardSchemaV1>(
 /**
 @example
 // client
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 
 document.cookie = deleteCookie(MyCookie)
 
 @example
 // server
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: v.object({ foo: v.string() }) })
+const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
 
 response.headers.set("set-cookie", deleteCookie(MyCookie))
 */
