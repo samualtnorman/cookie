@@ -30,7 +30,7 @@
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
 		"@samual/lib": "^0.13.0",
-		"@standard-schema/spec": "1.0.0",
+		"@standard-schema/spec": "^1.0.0",
 		"@standard-schema/utils": "^0.3.0"
 	},
 	"devDependencies": {

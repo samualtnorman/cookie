@@ -12,7 +12,7 @@ importers:
         specifier: ^0.13.0
         version: 0.13.0
       '@standard-schema/spec':
-        specifier: 1.0.0
+        specifier: ^1.0.0
         version: 1.0.0
       '@standard-schema/utils':
         specifier: ^0.3.0
