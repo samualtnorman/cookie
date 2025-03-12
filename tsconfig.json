@@ -19,6 +19,7 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"isolatedModules": true,
-		"erasableSyntaxOnly": true
+		"erasableSyntaxOnly": true,
+		"verbatimModuleSyntax": true
 	}
 }
