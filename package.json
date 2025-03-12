@@ -58,6 +58,5 @@
 		"./*": "./*.js",
 		"./*.js": "./*.js"
 	},
-	"type": "module",
-	"packageManager": "pnpm@10.1.0"
+	"type": "module"
 }
