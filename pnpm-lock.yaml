@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@samual/lib':
-        specifier: ^0.13.0
-        version: 0.13.0
+        specifier: 0.13.1-e3379e2
+        version: 0.13.1-e3379e2
       '@standard-schema/spec':
         specifier: ^1.0.0
         version: 1.0.0
@@ -780,6 +780,10 @@ packages:
 
   '@samual/lib@0.13.0':
     resolution: {integrity: sha512-5uUTQaWsuK0110a0voLpiHn4S+fkGd9s2EkKFg6JGfAP8m9UFmMf55wqw5ycypjhHqLgn6sdZDSKCyeQeVEbdA==}
+    engines: {node: ^18.20 || ^20.10 || >=22}
+
+  '@samual/lib@0.13.1-e3379e2':
+    resolution: {integrity: sha512-CNXJ6WpxCzgzr8Yz0AxN9p1P6a6W7hs7XVLj6C6MJHe8lTZPZ9GtZlkox4x69u+YqkDJ5UkVOjm6HMHMaF06KA==}
     engines: {node: ^18.20 || ^20.10 || >=22}
 
   '@samual/rollup-config@0.1.2':
@@ -2169,6 +2173,8 @@ snapshots:
     optional: true
 
   '@samual/lib@0.13.0': {}
+
+  '@samual/lib@0.13.1-e3379e2': {}
 
   '@samual/rollup-config@0.1.2(@babel/core@7.25.2)(prettier@3.4.2)(rollup@4.34.3)':
     dependencies:

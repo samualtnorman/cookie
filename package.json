@@ -29,7 +29,7 @@
 	],
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
-		"@samual/lib": "^0.13.0",
+		"@samual/lib": "0.13.1-e3379e2",
 		"@standard-schema/spec": "^1.0.0",
 		"@standard-schema/utils": "^0.3.0"
 	},
