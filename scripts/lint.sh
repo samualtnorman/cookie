@@ -1,4 +1,4 @@
 #!/bin/sh
 set -ex
-tsc
-tsc -p src
+node_modules/.bin/tsc
+node_modules/.bin/tsc -p src

@@ -1,3 +1,3 @@
 #!/bin/sh
 set -ex
-tsc --project src --emitDeclarationOnly --noEmit false
+node_modules/.bin/tsc --project src --emitDeclarationOnly --noEmit false
