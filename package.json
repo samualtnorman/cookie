@@ -38,7 +38,6 @@
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/node": "~18.19.80",
 		"@types/semver": "^7.5.8",
-		"babel-plugin-here": "^1.0.2",
 		"rollup": "^4.35.0",
 		"semver": "^7.7.1",
 		"typedoc": "^0.27.9",
@@ -53,10 +52,5 @@
 		"pnpm": "^10"
 	},
 	"private": true,
-	"exports": {
-		".": "./index.js",
-		"./*": "./*.js",
-		"./*.js": "./*.js"
-	},
 	"type": "module"
 }
