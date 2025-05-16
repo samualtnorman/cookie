@@ -38,6 +38,7 @@
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/node": "~18.19.80",
 		"@types/semver": "^7.5.8",
+		"jsr": "^0.13.4",
 		"rollup": "^4.35.0",
 		"semver": "^7.7.1",
 		"typedoc": "^0.27.9",
