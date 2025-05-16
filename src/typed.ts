@@ -3,8 +3,8 @@ import { utf8Decoder } from "@samual/lib/utf8Decoder"
 import { utf8Encoder } from "@samual/lib/utf8Encoder"
 import type { StandardSchemaV1 } from "@standard-schema/spec"
 import { SchemaError } from "@standard-schema/utils"
-import type { parseCookies } from "."
-import * as Cookie from "."
+import type { parseCookies } from "./index"
+import * as Cookie from "./index"
 
 export type CookieOptions<T extends StandardSchemaV1> = {
 	name: string
