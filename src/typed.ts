@@ -60,11 +60,17 @@ export function getCookie<
 	if (cookie) {
 		const result = options.schema["~standard"].validate(tryCatch(() => JSON.parse(options.rawValue ? cookie : decodeString(cookie))))
 
-		if (result instanceof Promise)
-			throw TypeError(`Schema validation must be synchronous`)
+		if (result instanceof Promise) {
+			console.error(`Caught`, TypeError(`Schema validation must be synchronous`))
 
-		if (result.issues)
-			throw new SchemaError(result.issues)
+			return
+		}
+
+		if (result.issues) {
+			console.error(`Caught`, new SchemaError(result.issues))
+
+			return
+		}
 
 		return result.value
 	}
