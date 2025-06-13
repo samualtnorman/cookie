@@ -57,7 +57,7 @@ const decodeString = (string: string) => utf8Decoder.decode(
  * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
  * ```
  */
-export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOptions<T>) => options
+export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOptions<T>): CookieOptions<T> => options
 
 /**
  * Get the validated value from the cookie
