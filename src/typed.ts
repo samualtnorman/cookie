@@ -6,11 +6,32 @@ import { SchemaError } from "@standard-schema/utils"
 import type { parseCookies } from "./index"
 import * as Cookie from "./index"
 
+/**
+ * A cookie options object produced by {@linkcode makeCookieOptions()}.
+ */
 export type CookieOptions<T extends StandardSchemaV1> = {
+	/** If `rawName` is not set to `true`, `name` can be any string as it'll be base64url encoded. */
 	name: string
+	/**
+	 * Must be a [Standard Schema](https://standardschema.dev/#what-schema-libraries-implement-the-spec) that is
+	 * compatible with JSON.
+	 * @see {@linkcode makeCookieOptions()}
+	 */
 	schema: T
+	/**
+	 * Additional attributes to append to
+	 * [`Set-Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie) strings created.
+	 */
 	attributes?: `;${string}` | undefined
+	/**
+	 * If set to `true`, the `name` will not be base64url'd. This means the given `name` must be a valid cookie name or
+	 * a `SyntaxError` will be thrown.
+	 */
 	rawName?: boolean | undefined
+	/**
+	 * If set to `true`, this should only be used when `schema` is a string schema or strange or broken behaviour is
+	 * likely to be seen.
+	 */
 	rawValue?: boolean | undefined
 }
 
