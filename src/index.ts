@@ -6,6 +6,8 @@ function assertValidCookieName(name: string) {
 }
 
 /**
+ * Parse a [`Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cookie) string into a
+ * [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
  * @example Client Example
  * ```ts
  * const cookies = parseCookies(document.cookie)
@@ -35,6 +37,10 @@ export function parseCookies(cookies: string | undefined | null): Map<string, st
 }
 
 /**
+ * Create a [`Set-Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie) string.
+ * Both the cookie name and value must be valid or a
+ * [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError) will be
+ * thrown.
  * @example Client Example
  * ```ts
  * document.cookie = setCookie("foo", "bar")
@@ -58,6 +64,10 @@ export function setCookie(
 }
 
 /**
+ * Create a [`Set-Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie) string.
+ * The cookie name must be valid or a
+ * [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError) will be
+ * thrown.
  * @example Client Example
  * ```ts
  * document.cookie = deleteCookie("foo")

@@ -22,7 +22,8 @@ const decodeString = (string: string) => utf8Decoder.decode(
 )
 
 /**
- * Make a {@link CookieOptions} object for use with {@link getCookie}, {@link setCookie}, and {@link deleteCookie}.
+ * Make a {@linkcode CookieOptions} object for use with {@linkcode getCookie()}, {@linkcode setCookie()}, and
+ * {@linkcode deleteCookie()}.
  * The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) meaning only
  * [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null),
  * [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type)s,
@@ -38,6 +39,9 @@ const decodeString = (string: string) => utf8Decoder.decode(
 export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOptions<T>) => options
 
 /**
+ * Get the validated value from the cookie
+ * [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) given by
+ * {@linkcode parseCookies()}.
  * @example Client Example
  * ```ts
  * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
@@ -54,7 +58,7 @@ export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOpt
  *
  * console.log(myCookie) // { foo: "bar" }
  * ```
- * @param cookies Returned value of {@link parseCookies}.
+ * @param cookies Returned value of {@linkcode parseCookies()}.
  */
 export function getCookie<
 	T extends StandardSchemaV1
@@ -81,6 +85,8 @@ export function getCookie<
 }
 
 /**
+ * Create a [`Set-Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie) string for
+ * the given options object and from the given value.
  * @example Client Example
  * ```ts
  * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
@@ -109,6 +115,8 @@ export function setCookie<T extends StandardSchemaV1>(
 }
 
 /**
+ * Create a [`Set-Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie) string for
+ * the given options object.
  * @example Client Example
  * ```ts
  * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
