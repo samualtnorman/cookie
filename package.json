@@ -36,7 +36,7 @@
 	"devDependencies": {
 		"@samual/rollup-config": "^0.1.2",
 		"@total-typescript/ts-reset": "^0.6.1",
-		"@types/node": "~18.19.80",
+		"@types/node": "~20.10.8",
 		"@types/semver": "^7.5.8",
 		"jsr": "^0.13.4",
 		"rollup": "^4.35.0",
@@ -44,7 +44,7 @@
 		"typescript": "^5.8.2"
 	},
 	"engines": {
-		"node": "^18.20 || ^20.10 || >=22",
+		"node": "^20.10 || ^22 || >=24",
 		"pnpm": "^10"
 	},
 	"private": true,

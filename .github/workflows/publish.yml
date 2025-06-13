@@ -13,7 +13,7 @@ jobs:
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
-      with: { node-version: ^20.10 || >=22, cache: pnpm }
+      with: { node-version: ^20.10 || ^22 || >=24, cache: pnpm }
 
     - run: git config --global user.email github-action@users.noreply.github.com
     - run: git config --global user.name "Github Action"
@@ -35,7 +35,7 @@ jobs:
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
-      with: { node-version: ^20.10 || >=22, cache: pnpm, registry-url: https://registry.npmjs.org }
+      with: { node-version: ^20.10 || ^22 || >=24, cache: pnpm, registry-url: https://registry.npmjs.org }
 
     - run: git config --global user.email github-action@users.noreply.github.com
     - run: git config --global user.name "Github Action"
