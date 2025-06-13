@@ -75,4 +75,4 @@ response.headers.set("set-cookie", setCookie(MyCookie, { foo: "baz" }))
 response.headers.set("set-cookie", deleteCookie(MyCookie))
 ```
 ---
-[View full documentation.](https://samualtnorman.github.io/cookie/)
+[View full documentation.](https://jsr.io/@samual/cookie/doc)
