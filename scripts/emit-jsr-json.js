@@ -3,9 +3,12 @@ import { mkdirSync as makeDirectorySync, writeFileSync } from "fs"
 import packageJson from "../package.json" with { type: "json" }
 import { getExports } from "./lib/exports.js"
 
+// these are being commented out for now due to a bug in utils' publishing.
+// see github:standard-schema/standard-schema#91 and github:standard-schema/standard-schema#92
+
 /** @type {Record<string, string>} */ const ConvertToJsr = {
-	"@standard-schema/spec": "@standard-schema/spec",
-	"@standard-schema/utils": "@standard-schema/utils"
+	// "@standard-schema/spec": "@standard-schema/spec",
+	// "@standard-schema/utils": "@standard-schema/utils"
 }
 
 const { name, version, license, dependencies } = packageJson
