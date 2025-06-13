@@ -2,9 +2,9 @@
 	"include": [ "*", "scripts/*" ],
 	"compilerOptions": {
 		"noEmit": true,
-		"lib": [ "es2023" ],
+		"lib": [ "ES2023" ],
 		"types": [ "node", "@total-typescript/ts-reset" ],
-		"target": "es2022",
+		"target": "es2023",
 		"module": "nodenext",
 		"resolveJsonModule": true,
 		"checkJs": true,
