@@ -6,14 +6,17 @@ function assertValidCookieName(name: string) {
 }
 
 /**
-@example
-// client
-const cookies = parseCookies(document.cookie)
-console.log(cookies.get("foo")) // "bar"
-@example
-// server
-const cookies = parseCookies(request.headers.get("cookie"))
-console.log(cookies.get("foo")) // "bar" */
+ * @example Client Example
+ * ```ts
+ * const cookies = parseCookies(document.cookie)
+ * console.log(cookies.get("foo")) // "bar"
+ * ```
+ * @example Server Example
+ * ```ts
+ * const cookies = parseCookies(request.headers.get("cookie"))
+ * console.log(cookies.get("foo")) // "bar"
+ * ```
+ */
 export function parseCookies(cookies: string | undefined | null): Map<string, string> {
 	const parsedCookies = new Map<string, string>()
 
@@ -32,13 +35,15 @@ export function parseCookies(cookies: string | undefined | null): Map<string, st
 }
 
 /**
-@example
-// client
-document.cookie = setCookie("foo", "bar")
-@example
-// server
-response.headers.set("set-cookie", setCookie("foo", "bar"))
-*/
+ * @example Client Example
+ * ```ts
+ * document.cookie = setCookie("foo", "bar")
+ * ```
+ * @example Server Example
+ * ```ts
+ * response.headers.set("set-cookie", setCookie("foo", "bar"))
+ * ```
+ */
 export function setCookie(
 	name: string,
 	value: string,
@@ -53,13 +58,15 @@ export function setCookie(
 }
 
 /**
-@example
-// client
-document.cookie = deleteCookie("foo")
-@example
-// server
-response.headers.set("set-cookie", deleteCookie("foo"))
-*/
+ * @example Client Example
+ * ```ts
+ * document.cookie = deleteCookie("foo")
+ * ```
+ * @example Server Example
+ * ```ts
+ * response.headers.set("set-cookie", deleteCookie("foo"))
+ * ```
+ */
 export function deleteCookie(name: string): string {
 	assertValidCookieName(name)
 

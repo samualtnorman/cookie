@@ -22,36 +22,40 @@ const decodeString = (string: string) => utf8Decoder.decode(
 )
 
 /**
-Make a {@link CookieOptions} object for use with {@link getCookie}, {@link setCookie}, and {@link deleteCookie}.
-The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) meaning only
-[`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null),
-[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type)s,
-[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#number_type)s,
-[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#string_type)s,
-[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)s, and
-[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects)s can be used.
-@example
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
-*/
+ * Make a {@link CookieOptions} object for use with {@link getCookie}, {@link setCookie}, and {@link deleteCookie}.
+ * The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) meaning only
+ * [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null),
+ * [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type)s,
+ * [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#number_type)s,
+ * [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#string_type)s,
+ * [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)s, and
+ * [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects)s can be used.
+ * @example
+ * ```ts
+ * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
+ * ```
+ */
 export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOptions<T>) => options
 
 /**
-@example
-// client
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
-const cookies = parseCookies(document.cookie)
-const myCookie = getCookie(cookies, MyCookie)
-
-console.log(myCookie) // { foo: "bar" }
-@example
-// server
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
-const cookies = parseCookies(request.headers.get("cookie"))
-const myCookie = getCookie(cookies, MyCookie)
-
-console.log(myCookie) // { foo: "bar" }
-@param cookies Returned value of {@link parseCookies}.
-*/
+ * @example Client Example
+ * ```ts
+ * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
+ * const cookies = parseCookies(document.cookie)
+ * const myCookie = getCookie(cookies, MyCookie)
+ *
+ * console.log(myCookie) // { foo: "bar" }
+ * ```
+ * @example Server Example
+ * ```ts
+ * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
+ * const cookies = parseCookies(request.headers.get("cookie"))
+ * const myCookie = getCookie(cookies, MyCookie)
+ *
+ * console.log(myCookie) // { foo: "bar" }
+ * ```
+ * @param cookies Returned value of {@link parseCookies}.
+ */
 export function getCookie<
 	T extends StandardSchemaV1
 >(cookies: Map<string, string>, options: CookieOptions<T>): StandardSchemaV1.InferOutput<T> | undefined {
@@ -77,18 +81,19 @@ export function getCookie<
 }
 
 /**
-@example
-// client
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
-
-document.cookie = setCookie(MyCookie, { foo: "bar" })
-
-@example
-// server
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
-
-response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" }))
-*/
+ * @example Client Example
+ * ```ts
+ * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
+ *
+ * document.cookie = setCookie(MyCookie, { foo: "bar" })
+ * ```
+ * @example Server Example
+ * ```ts
+ * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
+ *
+ * response.headers.set("set-cookie", setCookie(MyCookie, { foo: "bar" }))
+ * ```
+ */
 export function setCookie<T extends StandardSchemaV1>(
 	options: CookieOptions<T>,
 	value: StandardSchemaV1.InferInput<T> | undefined
@@ -104,17 +109,18 @@ export function setCookie<T extends StandardSchemaV1>(
 }
 
 /**
-@example
-// client
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
-
-document.cookie = deleteCookie(MyCookie)
-
-@example
-// server
-const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
-
-response.headers.set("set-cookie", deleteCookie(MyCookie))
-*/
+ * @example Client Example
+ * ```ts
+ * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
+ *
+ * document.cookie = deleteCookie(MyCookie)
+ * ```
+ * @example Server Example
+ * ```ts
+ * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
+ *
+ * response.headers.set("set-cookie", deleteCookie(MyCookie))
+ * ```
+ */
 export const deleteCookie = <T extends StandardSchemaV1>(options: CookieOptions<T>): string =>
 	Cookie.deleteCookie(options.rawName ? options.name : encodeString(options.name))
