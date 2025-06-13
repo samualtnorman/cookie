@@ -1,11 +1,6 @@
 # Cookie
 Set and get cookies with optional type validation using a [Standard Schema](https://standardschema.dev/#what-schema-libraries-implement-the-spec).
 
-## Install
-```sh
-npm install @samual/cookie
-```
-
 ## Usage
 ### Non Validated Cookies
 #### In the Client
