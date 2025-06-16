@@ -7,7 +7,7 @@ function assertValidCookieName(name: string) {
 
 /**
  * Parse a [`Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cookie) string into a
- * [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
+ * [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
  * @example Client Example
  * ```ts
  * const cookies = parseCookies(document.cookie)
