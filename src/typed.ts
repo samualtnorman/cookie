@@ -7,7 +7,7 @@ import type { parseCookies } from "./index"
 import * as Cookie from "./index"
 
 /**
- * A cookie options object produced by {@linkcode makeCookieOptions()}.
+ * A cookie options object produced by {@linkcode makeCookieOptions `makeCookieOptions()`}.
  */
 export type CookieOptions<T extends StandardSchemaV1> = {
 	/** If `rawName` is not set to `true`, `name` can be any string as it'll be base64url encoded. */
@@ -15,7 +15,7 @@ export type CookieOptions<T extends StandardSchemaV1> = {
 	/**
 	 * Must be a [Standard Schema](https://standardschema.dev/#what-schema-libraries-implement-the-spec) that is
 	 * compatible with JSON.
-	 * @see {@linkcode makeCookieOptions()}
+	 * @see {@linkcode makecookieoptions `makeCookieOptions()`}
 	 */
 	schema: T
 	/**
@@ -43,8 +43,8 @@ const decodeString = (string: string) => utf8Decoder.decode(
 )
 
 /**
- * Make a {@linkcode CookieOptions} object for use with {@linkcode getCookie()}, {@linkcode setCookie()}, and
- * {@linkcode deleteCookie()}.
+ * Make a {@linkcode CookieOptions} object for use with {@linkcode getCookie `getCookie()`},
+ * {@linkcode setCookie `setCookie()`}, and {@linkcode deleteCookie `deleteCookie()`}.
  * The schema should be compatible with [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) meaning only
  * [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null),
  * [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type)s,
@@ -62,7 +62,7 @@ export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOpt
 /**
  * Get the validated value from the cookie
  * [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) given by
- * {@linkcode parseCookies()}.
+ * {@linkcode parseCookies `parseCookies()`}.
  * @example Client Example
  * ```ts
  * const MyCookie = makeCookieOptions({ name: "<unique name>", schema: z.object({ foo: z.string() }) })
@@ -79,7 +79,7 @@ export const makeCookieOptions = <T extends StandardSchemaV1>(options: CookieOpt
  *
  * console.log(myCookie) // { foo: "bar" }
  * ```
- * @param cookies Returned value of {@linkcode parseCookies()}.
+ * @param cookies Returned value of {@linkcode parseCookies `parseCookies()`}.
  */
 export function getCookie<
 	T extends StandardSchemaV1
