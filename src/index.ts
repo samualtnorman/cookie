@@ -57,7 +57,7 @@ export function setCookie(
 ): string {
 	assertValidCookieName(name)
 
-	if (!/^(?:[!#-+--:<-[\]-~]*)|(?:"[!#-+--:<-[\]-~]*")$/.test(value))
+	if (!/^(?:(?:[!#-+--:<-[\]-~]*)|(?:"[!#-+--:<-[\]-~]*"))$/.test(value))
 		throw SyntaxError(`Invalid cookie value`)
 
 	return `${name}=${value}${options?.attributes || `;max-age=31536000;path=/;sameSite=lax`}`
