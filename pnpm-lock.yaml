@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@samual/lib':
-        specifier: 0.13.1-e3379e2
-        version: 0.13.1-e3379e2
+      '@samual/types':
+        specifier: ^0.0.1
+        version: 0.0.1
       '@standard-schema/spec':
         specifier: ^1.0.0
         version: 1.0.0
@@ -18,6 +18,9 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0
     devDependencies:
+      '@samual/lib':
+        specifier: 0.13.1-e3379e2
+        version: 0.13.1-e3379e2
       '@samual/rollup-config':
         specifier: ^0.1.2
         version: 0.1.2(@babel/core@7.25.2)(prettier@3.5.3)(rollup@4.43.0)
@@ -735,6 +738,10 @@ packages:
   '@samual/rollup-config@0.1.2':
     resolution: {integrity: sha512-UVmGQ3wTGPXxqozn7aFqfhzMPoD6ASbu5X5IsRxVDC6uwM4Cd/llDETHalM2sriYr0Me/CxTSuJkeDIKtPfPBA==}
     engines: {node: ^18.20 || ^20.10 || >=22}
+
+  '@samual/types@0.0.1':
+    resolution: {integrity: sha512-Qnof73jz4bPCxCfF4tfUMBn4tHqyRxq1TtC/Ca1pkMfJ9RE7tM/0faHVwcqP4THTdgZhD4Us1/hYrAePD4OznQ==}
+    engines: {node: ^20.10 || >=22}
 
   '@standard-schema/spec@1.0.0':
     resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
@@ -1869,6 +1876,8 @@ snapshots:
       - prettier
       - rollup
       - supports-color
+
+  '@samual/types@0.0.1': {}
 
   '@standard-schema/spec@1.0.0': {}
 

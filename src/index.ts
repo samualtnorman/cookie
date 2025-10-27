@@ -1,4 +1,4 @@
-import type { LaxPartial } from "@samual/lib"
+import type { LaxPartial } from "@samual/types"
 
 function assertValidCookieName(name: string) {
 	if (!/^[!#-+-.\d^-z|~]+$/i.test(name))

@@ -1,10 +1,11 @@
 import { tryCatch } from "@samual/lib/tryCatch"
-import { utf8Decoder } from "@samual/lib/utf8Decoder"
-import { utf8Encoder } from "@samual/lib/utf8Encoder"
 import type { StandardSchemaV1 } from "@standard-schema/spec"
 import { SchemaError } from "@standard-schema/utils"
 import type { parseCookies } from "./index"
 import * as Cookie from "./index"
+
+const utf8Encoder = new TextEncoder
+const utf8Decoder = new TextDecoder
 
 /**
  * A cookie options object produced by {@linkcode makeCookieOptions `makeCookieOptions()`}.

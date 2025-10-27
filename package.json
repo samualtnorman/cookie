@@ -29,11 +29,12 @@
 	],
 	"repository": "github:samualtnorman/cookie",
 	"dependencies": {
-		"@samual/lib": "0.13.1-e3379e2",
+		"@samual/types": "^0.0.1",
 		"@standard-schema/spec": "^1.0.0",
 		"@standard-schema/utils": "^0.3.0"
 	},
 	"devDependencies": {
+		"@samual/lib": "0.13.1-e3379e2",
 		"@samual/rollup-config": "^0.1.2",
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/node": "~20.10.8",

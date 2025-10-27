@@ -8,7 +8,8 @@ import { getExports } from "./lib/exports.js"
 
 /** @type {Record<string, string>} */ const ConvertToJsr = {
 	// "@standard-schema/spec": "@standard-schema/spec",
-	// "@standard-schema/utils": "@standard-schema/utils"
+	// "@standard-schema/utils": "@standard-schema/utils",
+	"@samual/types": "@samual/types"
 }
 
 const { name, version, license, dependencies } = packageJson
