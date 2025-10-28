@@ -1,4 +1,3 @@
-import { tryCatch } from "@samual/lib/tryCatch"
 import type { StandardSchemaV1 } from "@standard-schema/spec"
 import { SchemaError } from "@standard-schema/utils"
 import type { parseCookies } from "./index"
@@ -88,7 +87,13 @@ export function getCookie<
 	const cookie = cookies.get(options.rawName ? options.name : encodeString(options.name))
 
 	if (cookie) {
-		const result = options.schema["~standard"].validate(tryCatch(() => JSON.parse(options.rawValue ? cookie : decodeString(cookie))))
+		let parsedJson
+
+		try {
+			parsedJson = JSON.parse(options.rawValue ? cookie : decodeString(cookie))
+		} catch {}
+
+		const result = options.schema["~standard"].validate(parsedJson)
 
 		if (result instanceof Promise) {
 			console.error(`Caught`, TypeError(`Schema validation must be synchronous`))
