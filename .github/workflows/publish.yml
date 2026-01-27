@@ -49,10 +49,8 @@ jobs:
       if: github.event_name == 'push'
       run: pnpm publish --provenance --access public --no-git-checks --tag dev
       working-directory: dist
-      env: { NODE_AUTH_TOKEN: "${{secrets.NPM_TOKEN}}" }
 
     - name: Publish release
       if: github.event_name == 'release'
       run: pnpm publish --provenance --access public --no-git-checks
       working-directory: dist
-      env: { NODE_AUTH_TOKEN: "${{secrets.NPM_TOKEN}}" }
