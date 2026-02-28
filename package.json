@@ -40,7 +40,7 @@
 		"@types/node": "~20.10.8",
 		"@types/semver": "^7.7.0",
 		"jsr": "^0.13.4",
-		"rollup": "^4.43.0",
+		"rollup": "^4.59.0",
 		"semver": "^7.7.2",
 		"typescript": "^5.8.3"
 	},
